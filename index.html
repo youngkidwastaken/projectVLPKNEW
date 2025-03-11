@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookBuddy - Главная</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css"> <!-- Подключаем анимации -->
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav ul {
+            list-style-type: none;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            background-color: #45a049;
+        }
+
+        /* Главный экран */
+        #hero {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-out; /* Анимация для главного экрана */
+        }
+
+        #hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        #hero .btn {
+            background-color: white;
+            color: #4CAF50;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        #hero .btn:hover {
+            background-color: #45a049;
+            color: white;
+        }
+
+        /* Раздел поиска */
+        #search {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        #search h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #search form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        #search input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        #search button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #search button:hover {
+            background-color: #45a049;
+        }
+
+        /* Раздел популярных книг */
+        #popular-books {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        #popular-books h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .book-list {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .book-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .book-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .book-item h3 {
+            font-size: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .book-item p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .book-item .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .book-item .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Футер */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 60px;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 28px;
+            }
+
+            .book-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .book-item {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+
+            #search form {
+                flex-direction: column;
+            }
+
+            #search input {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+
+            #search button {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="book.html">Книга</a></li> <!-- Добавлена ссылка на страницу книги -->
+                <li><a href="my_books.html">Мои книги</a></li> <!-- Добавлена ссылка на мои книги -->
+                <li><a href="login.html">Вход</a></li>
+                <li><a href="register.html">Регистрация</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <main>
+        <!-- Главный экран -->
+        <section id="hero">
+            <h1>Добро пожаловать в BookBuddy</h1>
+            <p>Ищите, читайте и делитесь любимыми книгами с другими пользователями!</p>
+            <a href="catalog.html" class="btn">Перейти в каталог</a>
+        </section>
+        
+        <!-- Раздел поиска -->
+        <section id="search">
+            <h2>Поиск книг</h2>
+            <form action="catalog.html" method="get">
+                <input type="text" name="query" placeholder="Введите название книги или автора">
+                <button type="submit">Поиск</button>
+            </form>
+        </section>
+
+        <!-- Раздел популярных книг -->
+        <section id="popular-books">
+            <h2>Популярные книги</h2>
+            <div class="book-list">
+                <div class="book-item">
+                    <img src="images/book1.jpg" alt="Книга 1">
+                    <h3>Название книги 1</h3>
+                    <p>Автор: Автор 1</p>
+                    <a href="book-details.html" class="btn">Подробнее</a>
+                </div>
+                <div class="book-item">
+                    <img src="images/book2.jpg" alt="Книга 2">
+                    <h3>Название книги 2</h3>
+                    <p>Автор: Автор 2</p>
+                    <a href="book-details.html" class="btn">Подробнее</a>
+                </div>
+                <div class="book-item">
+                    <img src="images/book3.jpg" alt="Книга 3">
+                    <h3>Название книги 3</h3>
+                    <p>Автор: Автор 3</p>
+                    <a href="book-details.html" class="btn">Подробнее</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 BookBuddy. Все права защищены.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

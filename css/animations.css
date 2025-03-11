@@ -1,0 +1,42 @@
+/* animations.css */
+
+/* Анимация появления элементов */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Анимация скольжения вверх */
+@keyframes slideUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Применяем анимации к элементам */
+.fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.slide-up {
+    animation: slideUp 0.8s ease-out;
+}
+
+/* Применение для карточек книг */
+.book-item {
+    animation: fadeIn 1s ease-out; /* Пример анимации для карточек */
+}
+
+/* Применение для главного экрана */
+#hero {
+    animation: slideUp 1s ease-out; /* Анимация для главного экрана */
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Информация о книге на сайте BookBuddy.">
+    <title>BookBuddy - Информация о книге</title>
+    <link rel="stylesheet" href="css/book-details.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="login.html">Вход</a></li>
+                <li><a href="register.html">Регистрация</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="book-details" class="container">
+            <div class="book-cover">
+                <img src="" alt="Обложка книги" id="book-cover">
+            </div>
+            <div class="book-info">
+                <h1 id="book-title"></h1>
+                <p id="book-author" class="text-muted"></p>
+                <p id="book-genre" class="text-muted"></p>
+                <p id="book-publish-date" class="text-muted"></p>
+                <p id="book-isbn" class="text-muted"></p>
+                <div id="book-rating" class="rating-stars" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section id="book-description" class="container">
+            <h2>Описание</h2>
+            <p id="book-description-text"></p>
+        </section>
+
+        <section id="user-actions" class="container">
+            <button id="add-to-read" class="btn">Добавить в прочитанные</button>
+            <button id="add-to-wishlist" class="btn btn-secondary">Добавить в список желаемого</button>
+            <button id="write-review" class="btn btn-outline">Написать отзыв</button>
+        </section>
+
+        <section id="reviews" class="container">
+            <h2>Отзывы</h2>
+            <div id="review-list" class="review-container">
+                <!-- Отзывы будут добавляться динамически через JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 BookBuddy. Все права защищены.</p>
+    </footer>
+
+    <script src="js/book-details.js"></script>
+</body>
+</html>

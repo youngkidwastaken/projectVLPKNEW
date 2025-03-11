@@ -1,0 +1,87 @@
+/* Основные стили для страницы */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+header {
+    background-color: #4CAF50;
+    padding: 10px 0;
+}
+header nav ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+header nav ul li {
+    display: inline-block;
+    margin-right: 15px;
+}
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+header nav ul li a:hover {
+    background-color: #45a049;
+}
+
+main {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 32px;
+    color: #333;
+}
+
+#logout-message p {
+    font-size: 18px;
+    color: #555;
+}
+
+#logout-options h2 {
+    margin-top: 30px;
+    font-size: 24px;
+    color: #444;
+}
+
+#logout-options ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#logout-options ul li {
+    margin-bottom: 10px;
+}
+
+#logout-options ul li a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-size: 18px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#logout-options ul li a:hover {
+    background-color: #45a049;
+    color: white;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

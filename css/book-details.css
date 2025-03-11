@@ -1,0 +1,130 @@
+/* Основной стиль страницы */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    padding: 10px 0;
+}
+
+header nav ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    background-color: #45a049;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#book-details {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.book-cover {
+    width: 30%;
+}
+
+.book-cover img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.book-info {
+    width: 70%;
+    padding-left: 20px;
+}
+
+.book-info h1 {
+    font-size: 28px;
+    color: #333;
+}
+
+.text-muted {
+    color: #555;
+    font-size: 16px;
+}
+
+.rating-stars {
+    margin-top: 10px;
+}
+
+#book-description {
+    margin-bottom: 40px;
+}
+
+#user-actions button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#user-actions button.btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#user-actions button.btn-secondary {
+    background-color: #f1c40f;
+    color: white;
+}
+
+#user-actions button.btn-outline {
+    background-color: transparent;
+    color: #4CAF50;
+    border: 2px solid #4CAF50;
+}
+
+#user-actions button:hover {
+    opacity: 0.8;
+}
+
+.review-container {
+    margin-top: 20px;
+}
+
+.review-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.review-item strong {
+    font-weight: bold;
+}
+
+.review-item p {
+    margin: 5px 0;
+}
