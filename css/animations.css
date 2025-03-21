@@ -1,42 +1,60 @@
-/* animations.css */
-
-/* Анимация появления элементов */
 @keyframes fadeIn {
-    0% {
+    from {
         opacity: 0;
     }
-    100% {
+    to {
         opacity: 1;
     }
 }
 
-/* Анимация скольжения вверх */
-@keyframes slideUp {
-    0% {
-        transform: translateY(30px);
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
         opacity: 0;
     }
-    100% {
+    to {
         transform: translateY(0);
         opacity: 1;
     }
 }
 
-/* Применяем анимации к элементам */
-.fade-in {
-    animation: fadeIn 1s ease-out;
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
 }
 
-.slide-up {
-    animation: slideUp 0.8s ease-out;
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-/* Применение для карточек книг */
+#hero h1 {
+    animation: fadeIn 1s ease-in-out;
+}
+
+#hero p {
+    animation: slideIn 1s ease-in-out;
+}
+
+.book-list {
+    animation: fadeIn 1s ease-in-out;
+}
+
 .book-item {
-    animation: fadeIn 1s ease-out; /* Пример анимации для карточек */
+    animation: slideIn 0.5s ease-in-out;
 }
 
-/* Применение для главного экрана */
-#hero {
-    animation: slideUp 1s ease-out; /* Анимация для главного экрана */
+.book-item:hover {
+    animation: bounce 0.5s ease-in-out;
 }

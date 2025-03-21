@@ -1,16 +1,24 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const books = [
-        { title: "Книга 1", author: "Автор 1", cover: "images/book1.jpg" },
-        { title: "Книга 2", author: "Автор 2", cover: "images/book2.jpg" },
-        { title: "Книга 3", author: "Автор 3", cover: "images/book3.jpg" },
-        { title: "Книга 4", author: "Автор 4", cover: "images/book4.jpg" },
-        { title: "Книга 5", author: "Автор 5", cover: "images/book5.jpg" },
-        { title: "Книга 6", author: "Автор 6", cover: "images/book6.jpg" }
-    ];
-    
     const bookGrid = document.querySelector(".book-grid");
+    const filterForm = document.getElementById("filter-form");
+    let allBooks = []; // Массив для хранения всех загруженных книг
 
-    // Функция для отображения книг
+    async function fetchBooks() {
+        try {
+            const response = await fetch('https://openlibrary.org/subjects/love.json?limit=50');
+            const data = await response.json();
+            allBooks = data.works.map(book => ({
+                title: book.title,
+                author: book.authors.map(author => author.name).join(', '),
+                cover: book.cover_id ? `https://covers.openlibrary.org/b/id/${book.cover_id}-L.jpg` : 'images/default-cover.jpg',
+                genre: 'love' // Добавьте жанр, если он известен
+            }));
+            displayBooks(allBooks); // Отображаем все книги
+        } catch (error) {
+            console.error("Ошибка при загрузке книг:", error);
+        }
+    }
+
     function displayBooks(bookList) {
         bookGrid.innerHTML = '';
         bookList.forEach(book => {
@@ -25,35 +33,39 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Отображаем все книги по умолчанию
-    displayBooks(books);
+    // Обработка отправки формы
+    filterForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Предотвращаем стандартное поведение формы
+        const genre = document.getElementById('genre').value;
+        const sort = document.getElementById('sort').value;
 
-    // Фильтрация книг по жанрам
-    const filterForm = document.querySelector("#filter-form");
-    filterForm.addEventListener("submit", function(e) {
-        e.preventDefault();
-
-        const genre = document.querySelector("#genre").value;
-        const sort = document.querySelector("#sort").value;
-
-        let filteredBooks = books;
-
-        // Фильтрация по жанру
+        // Фильтрация книг
+        let filteredBooks = allBooks;
         if (genre) {
-            filteredBooks = books.filter(book => book.genre === genre);
+            filteredBooks = filteredBooks.filter(book => book.genre === genre);
         }
 
-        // Сортировка
-        if (sort) {
-            filteredBooks = filteredBooks.sort((a, b) => {
-                if (sort === 'popularity') return b.popularity - a.popularity;
-                if (sort === 'title') return a.title.localeCompare(b.title);
-                if (sort === 'author') return a.author.localeCompare(b.author);
-                if (sort === 'date') return new Date(b.date) - new Date(a.date);
-            });
+        // Сортировка книг (по названию в данном примере)
+        if (sort === 'title') {
+            filteredBooks.sort((a, b) => a.title.localeCompare(b.title));
         }
 
-        // Отображаем отфильтрованные книги
-        displayBooks(filteredBooks);
+        displayBooks(filteredBooks); // Отображаем отфильтрованные книги
     });
+
+    const themeToggleButton = document.getElementById('theme-toggle');
+    themeToggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+        const theme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+        localStorage.setItem('theme', theme);
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    });
+
+    fetchBooks();
 });

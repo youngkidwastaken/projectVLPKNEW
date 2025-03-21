@@ -17,30 +17,30 @@
                 <li><a href="login.html">Вход</a></li>
                 <li><a href="register.html">Регистрация</a></li>
             </ul>
+            <button id="theme-toggle">Сменить тему</button>
         </nav>
     </header>
 
     <main>
         <h1>Каталог книг</h1>
-        
-        <!-- Секция фильтров -->
-        <section id="filters" class="container">
+        <section id="filters" class="filters-container">
             <h2>Фильтры</h2>
             <form id="filter-form" aria-labelledby="filters">
-                <div>
+                <div class="filter-group">
                     <label for="genre">Жанр:</label>
-                    <select id="genre" name="genre" aria-label="Выбор жанра">
+                    <select id="genre" name="genre">
                         <option value="">Все жанры</option>
                         <option value="fiction">Художественная литература</option>
                         <option value="non-fiction">Нон-фикшн</option>
                         <option value="science">Наука</option>
                         <option value="history">История</option>
+                        <option value="love">Любовь</option>
                     </select>
                 </div>
 
-                <div>
+                <div class="filter-group">
                     <label for="sort">Сортировать по:</label>
-                    <select id="sort" name="sort" aria-label="Выбор критерия сортировки">
+                    <select id="sort" name="sort">
                         <option value="popularity">Популярности</option>
                         <option value="title">Названию</option>
                         <option value="author">Автору</option>
@@ -52,17 +52,15 @@
             </form>
         </section>
 
-        <!-- Секция списка книг -->
-        <section id="book-list" class="container">
+        <section id="book-list" class="book-list-container">
             <h2>Список книг</h2>
             <div class="book-grid">
-                <!-- Здесь будут отображаться книги, загруженные с помощью JavaScript -->
+                <!-- Книги будут подгружаться через JavaScript -->
             </div>
         </section>
 
-        <!-- Секция пагинации -->
-        <div id="pagination" class="container">
-            <!-- Пагинация будет добавляться через JS -->
+        <div id="pagination" class="pagination-container">
+            <!-- Кнопки пагинации будут добавляться через JavaScript -->
         </div>
     </main>
 

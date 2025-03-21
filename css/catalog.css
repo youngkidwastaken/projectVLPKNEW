@@ -1,19 +1,36 @@
-/* Основные стили */
+/* Общие стили для body */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f4f4f9;
     color: #333;
 }
 
+main {
+    flex: 1; /* Позволяет main занимать оставшееся пространство */
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Стили для шапки сайта */
 header {
     background-color: #4CAF50;
     padding: 10px 0;
 }
 
 header nav ul {
-    list-style-type: none;
+    list-style: none;
     text-align: center;
     margin: 0;
     padding: 0;
@@ -30,127 +47,117 @@ header nav ul li a {
     font-size: 18px;
     padding: 8px 16px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
 
-header nav ul li a:hover {
-    background-color: #45a049;
+header nav ul li a.active {
+    background-color: #2e7d32;
 }
 
-main {
-    padding: 40px 20px;
+#theme-toggle {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    border: none;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin-left: 15px;
 }
 
-h1 {
-    font-size: 32px;
-    color: #333;
-    text-align: center;
+/* Стили для блока фильтров */
+.filters-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 700px;
 }
 
-.container {
-    width: 90%;
-    margin: 0 auto;
-}
-
-#filters {
-    margin-bottom: 40px;
-}
-
-#filters h2 {
-    font-size: 24px;
+.filter-group {
     margin-bottom: 15px;
-    color: #444;
 }
 
-#filter-form label {
+label {
     display: block;
-    margin-bottom: 10px;
-    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-#filter-form select {
-    padding: 10px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+select {
     width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-#filter-form .btn {
+.btn {
+    display: inline-block;
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
+    text-align: center;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#filter-form .btn:hover {
+.btn:hover {
     background-color: #45a049;
 }
 
-#book-list {
-    margin-top: 40px;
-}
-
+/* Сетка книг */
 .book-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
-    padding: 0;
+    margin-top: 20px;
 }
 
 .book-item {
-    background-color: white;
-    padding: 20px;
+    background: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
     text-align: center;
 }
 
 .book-item img {
     width: 100%;
-    height: auto;
     border-radius: 8px;
 }
 
 .book-item h3 {
-    margin-top: 15px;
-    font-size: 18px;
-    color: #333;
+    margin-top: 10px;
 }
 
-.book-item p {
-    font-size: 16px;
-    color: #555;
-}
-
-#pagination {
+.pagination-container {
     text-align: center;
-    margin-top: 40px;
+    margin: 20px 0;
 }
 
-#pagination a {
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
+.pagination-container button {
     background-color: #4CAF50;
     color: white;
-    margin: 0 5px;
-    font-size: 16px;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-#pagination a:hover {
-    background-color: #45a049;
-}
-
-footer {
+/* Темная тема */
+body.dark-theme {
     background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    color: #f4f4f9;
+}
+
+body.dark-theme header {
+    background-color: #555;
+}
+
+body.dark-theme footer {
+    background-color: #555;
 }

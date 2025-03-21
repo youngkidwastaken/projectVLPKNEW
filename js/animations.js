@@ -1,20 +1,18 @@
-// Анимация появления контента при прокрутке
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
-    
-    const options = {
-        threshold: 0.5
-    };
+document.addEventListener("DOMContentLoaded", function() {
+    const bookItems = document.querySelectorAll('.book-item');
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+    function revealItems() {
+        const windowHeight = window.innerHeight;
+
+        bookItems.forEach(item => {
+            const itemTop = item.getBoundingClientRect().top;
+
+            if (itemTop < windowHeight - 100) {
+                item.classList.add('visible');
             }
         });
-    }, options);
+    }
 
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+    window.addEventListener('scroll', revealItems);
+    revealItems(); // Initial check
 });
